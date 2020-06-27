@@ -3,6 +3,10 @@
       <div class="top">
         <h1>마이페이지</h1>
       </div>
+      <div v-for="user in users" class="item" v-bind:key="user.id">
+        <strong>{{user.name}}</strong>
+      </div>
+      <div>요기</div>
       <div id="sub_content">
         <!-- 고객용 테이블 시작 -->
         <table id="clientTbl" style="display:none;">
@@ -72,7 +76,19 @@
 
 <script>
   export default {
-    name: "thispage"
+    name: "thispage",
+    data () { 
+          return { 
+              users: [] 
+          } 
+      },
+    created () { 
+          this.$http.get('/api/member') 
+          .then((response) => { 
+              this.users = response.data 
+              }
+          ) 
+      }
   };
 </script>
 

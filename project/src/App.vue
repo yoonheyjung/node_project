@@ -25,6 +25,17 @@ export default {
   components: {
     RwvHeader,
     LeftMenu
+  }, created () {
+    // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
+    this.$http.get('/users')
+        .then((response) => {
+          this.movies = response.data
+        })
+  },
+  data () {
+    return {
+      movies: []
+    }
   }
 }
 </script>

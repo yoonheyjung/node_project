@@ -1,4 +1,5 @@
-console.log("heoolllllll");
+
+console.log("data.js 페이지");
 
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
