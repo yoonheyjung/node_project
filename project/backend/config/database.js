@@ -2,8 +2,8 @@ console.log('/config/database.js');
 // config/database.js
 module.exports = {
     host     : 'localhost',
-    user     : 'tesr',
-    password : 'qwer1234!',
+    user     : 'root',
+    password : 'emfjrkwk',
     port     : 3306,
     database : 'DB_OAG'
   };
@@ -12,7 +12,7 @@ module.exports = {
 /*const mysql      = require('mysql');
 const connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'tesr',
+  user     : 'root',
   password : 'qwer1234!',
   port     : 3306,
   database : 'DB_OAG'

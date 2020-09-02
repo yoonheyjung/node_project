@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var movies = require('../test.json');
-
+console.log("movies.js 들어옴");
   router.get('/', function (req, res, next) {
     res.send(movies)
   });

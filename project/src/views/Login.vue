@@ -10,22 +10,32 @@
             <img alt="Vue logo" src="../assets/logo.jpg" width="200" height="200">
           </span><hr />
         <br />
-        <input type="text" id="txtUser" class="gtxt " placeholder="ID" onchange="BlurRemoveCss('txtUser')" /><br /><br />
-        <input type="password" id="txtPassword" placeholder="Password" class="gtxt " onchange="BlurRemoveCss('txtPassword')" /><br /><br />
-        <p style="text-align:center">
-            <input type="button" value="Login" class="btn btn-info gbtn" onclick="UserLogin()" />
-            <a href="/Epaper">
-                <input type="button" value="Cancel" class="btn btn-danger gbtn" />
-            </a><br />
-            <span id="lblErrorMsg"></span>
-        </p>
+         <v-form >
+            <v-text-field label="아이디" v-model="user.userid"></v-text-field>
+            <v-text-field @keyup.enter="Login" type="password" label="패스워드" v-model="user.userpw" style="margin-top:-15px;"></v-text-field>
+            <v-btn @click="Login" large outlined style="width:60%; margin: 0 20%;">로그인</v-btn>
+        </v-form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  data(){
+    return{
+            user: {
+                userId: '',
+                userPw: ''
+            }
+        }
+  },
+  methods:{
+    //eslint-disable-next-line
+    Login: function(){
+      alert("환영합니다");
+      this.$router.push('/');
+    }
+  }
 }
 </script>
 
@@ -33,7 +43,7 @@ export default {
 .glogin {
     background-color: white;
     margin: auto;
-    width: 350px;
+    width: 500px;
     border: solid 1px #218d8d;
     padding: 5px;
     border-radius: 5px;

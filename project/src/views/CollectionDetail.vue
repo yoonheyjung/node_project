@@ -1,7 +1,7 @@
 <template>
   <div class="collection_detail">
     <div class="top">
-        <h1> collection detail</h1>
+        <h1> 봄 디자인 </h1>
     </div>
     <div class="subcontent">
         <!--대표 이미지 영역 시작 -->
@@ -46,6 +46,7 @@
                         auto
                         ref="datetimePicker"
                         placeholder="예약 바로가기"></datetime>
+        <v-btn large outlined @click="goReservation">예약 확정하기</v-btn>
             
            
         </div>
@@ -70,11 +71,18 @@ Vue.use(Datetime)
     data() {
       return {
         detail: [
-          { name: "네일 아트의 이름이다", 
+          { name: "봄 디자인", 
             description:"봄을 연상하게하는 파스텔톤의 보라색을 사용하여 자칫 밋밋 할 수 있는 컬러에 커다란 파츠를 넣어 화려함을 더 한 디자인입니다. ",
             price: 60000 , time: '3' }
         ]
       }
+    },
+    methods:{
+        //eslint-disable-next-line
+        goReservation: function(){
+            alert("예약이 확정 되었습니다 ! 7월 15일 4시 30분에 뵙겠습니다. ");
+            this.$router.push('/views/Collection');
+        }
     }
   }
         

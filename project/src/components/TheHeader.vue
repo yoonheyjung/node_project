@@ -2,7 +2,7 @@
     <nav class="navbar navbar-light">
         <div class="container" >
             <router-link class="navbar-brand" :to="{ name: 'login' }">
-            login
+            Login
             </router-link>
             <router-link class="navbar-brand" :to="{ name: 'signup' }">
             sign up

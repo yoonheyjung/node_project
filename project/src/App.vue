@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <v-app>
+    <div id="app">
     
     <div id="header" >
       <RwvHeader />
@@ -14,6 +15,7 @@
     </div>
     
   </div>
+  </v-app>
 </template>
 
 <script>
@@ -25,24 +27,16 @@ export default {
   components: {
     RwvHeader,
     LeftMenu
-  }, created () {
-    // 컴포넌트가 생성될 때, /api/movies에 요청을 보냅니다.          
-    this.$http.get('/users')
-        .then((response) => {
-          this.movies = response.data
-        })
   },
-  data () {
-    return {
-      movies: []
-    }
-  }
-}
+  data: () => ({
+    //
+  })
+};
 </script>
 
 <style>
   #app {
-    width: 90%;
+    width: 100%;
     margin: 10px auto;
     padding: 20px;
    }
@@ -58,10 +52,10 @@ export default {
     font-size: larger;
   }
   #content {
-    min-width: 84%;
+    min-width: 80%;
     width : auto;
     max-width: 90%;
-    padding: 20px;
+    padding: 45px;
     margin-bottom: 20px;
     float: right;
   }

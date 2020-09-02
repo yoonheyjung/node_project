@@ -11,11 +11,11 @@
       <table>
         <tr>
           <td> 아이디 </td>
-          <td><input type="text"> </td>
+          <td><input id="userid" name="userid" type="text"></td>
         </tr>
         <tr>
           <td> 이름 </td>
-          <td><input type="text"> </td>
+          <td><input id="name" name="name" type="text"> </td>
         </tr>
         <tr>
           <td> 비밀번호 </td>
@@ -32,8 +32,11 @@
           <td  colspan="2">
             <label><input type="checkbox" name="fav" value="" > 심플 </label>
             <label><input type="checkbox" name="fav" value="" > 화려한 </label>
+            <label><input type="checkbox" name="fav" value="" > 발랄한 </label>
+            <label><input type="checkbox" name="fav" value="" > 귀여운 </label>
             <label><input type="checkbox" name="fav" value="" > 풀컬러 </label>
-            <label><input type="checkbox" name="fav" value="" > 이게뭐였지 </label>
+            <label><input type="checkbox" name="fav" value="" > 유광 </label>
+            <label><input type="checkbox" name="fav" value="" > 무광 </label>
           </td>
         </tr>
       </table>

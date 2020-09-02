@@ -2,13 +2,7 @@
     <div class="home-page">
         <div class="banner">
              <div class="container">
-                <h3 class="logo-font"> 여기는 첫 페이지</h3>
-                <p>A place to share your knowledge.</p>
-<div v-for="test in movies" class="movie" v-bind:key="test">
-    <div> <strong></strong>, <i></i> [] 
-    <router-link :to="{ name: 'show', params: { id: test.id }}">더보기</router-link> </div>
-
-</div>
+                <h3 class="logo-font" > 안녕하세요. test01님!</h3>
             </div>
         </div>
          <div class="container page">

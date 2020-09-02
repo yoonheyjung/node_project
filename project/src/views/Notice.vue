@@ -2,7 +2,7 @@
 <template>
   <div class="notice">
     <div class="top">
-        <h1>공지사항 페이지 </h1>
+        <h1>공지사항  </h1>
     </div>
     <div class="subcontent">
       <table style="width:100%;table-layout:fixed;">
@@ -10,20 +10,20 @@
           <th class="num"> No. </th>
           <th class="subject"> 제목 </th>
           <th class="cnt"> 조회수 </th>
-          <th> 작성자 </th>
+          <th style="text-align: center"> 작성자 </th>
           <th class="regdate"> 작성일 </th>
         </thead>
         <!-- https://holecjh.tistory.com/145 -->
 
         <tbody>
-           <tr>
-            <td class="num">6</td>
-            <td class="subject">이건 첫 글의 제목</td>
-            <td class="cnt">1564</td>
-            <td style="text-align: center">운영자</td>
-            <td class="regdate">2020.05.02</td>
+           <tr v-for="list in noticeList" :key="list.seq">
+            <td class="num">{{list.seq}}</td>
+            <td class="subject">{{list.subject}}</td>
+            <td class="cnt">{{list.cnt}}</td>
+            <td style="text-align: center">관리자</td>
+            <td class="regdate">{{ list.reg_date | moment('YYYY-MM-DD') }} </td>
           </tr>
-
+        <!--
            <tr>
             <td class="num">5</td>
             <td class="subject"><p class="ellipName">엄청나가ㅔ 긴제목을 주저리줄저저저저저저저저저저젖저저주저리주저리주저리</p></td>
@@ -64,7 +64,7 @@
             <td style="text-align: center">운영자</td>
             <td class="regdate">2020.04.27</td>
           </tr>
-          
+        -->
         </tbody>
       </table>
     </div>
@@ -73,7 +73,28 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+        noticeList:[],
+        users: []
+    }
+  },
+  methods: {
+    LoadNotice : function(){
+      this.$http.get('/api/board/notice').then((res) => {
+        this.noticeList = res.data
+        })
+    },//LoadNotice end
+    LoadUser : function(){
+      this.$http.get('/api/users').then((res) => {this.users = res.data
+      
+        console.log(this.users);})
+    }//loaduser end
+  },
+  created() {
+      this.LoadNotice();
+      this.LoadUser();
+  }
 }
 </script>
 

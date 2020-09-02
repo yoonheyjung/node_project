@@ -18,37 +18,9 @@
                     class="nav-link"
                     active-class="active"
                     exact
-                    :to="{ name: 'mypage' }"
-                    >
-                    My page
-                    </router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link
-                    class="nav-link"
-                    active-class="active"
-                    exact
                     :to="{ name: 'collection' }"
                     >
                     Collection
-                    </router-link></li>
-                <li class="nav-item">
-                    <router-link
-                    class="nav-link"
-                    active-class="active"
-                    exact
-                    :to="{ name: 'collection_detail' }"
-                    >
-                    Collection Detail
-                    </router-link></li>
-                <li class="nav-item">
-                    <router-link
-                    class="nav-link"
-                    active-class="active"
-                    exact
-                    :to="{ name: 'reservation_check' }"
-                    >
-                    Reservation Check
                     </router-link></li>
                 <li class="nav-item">
                     <span>

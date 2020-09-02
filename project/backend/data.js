@@ -4,8 +4,8 @@ console.log("data.js 페이지");
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : '127.0.0.1',
-  user     : 'tesr',
-  password : 'qwer1234!',
+  user     : 'root',
+  password : 'emfjrkwk',
   port     : 3306,
   database : 'DB_OAG'
 });

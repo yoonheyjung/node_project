@@ -14,28 +14,58 @@
         </div>
         <ul  style="overflow:auto">
             <li>
-                <div class="collection_pic">
+                <v-img class="collection_pic"  @click="goDetail" >
                     <img src="../assets/nail_01.jpg">
+                </v-img>
+                <v-text >봄 디자인</v-text >
+            </li>
+            <li>
+                <div class="collection_pic">
+                    <img src="../assets/nail_09.jpg">
+                </div>
+                <span>여름의 초록</span>
+            </li>
+            <li>
+                <div class="collection_pic">
+                    <img src="../assets/nail_10.jpg">
                 </div>
                 <span>봄 디자인</span>
             </li>
             <li>
                 <div class="collection_pic">
-                    <img src="../assets/nail_01.jpg">
+                    <img src="../assets/nail_11.jpg">
                 </div>
-                <span>봄 디자인</span>
+                <span>반짝함이 가득한 여름 바다</span>
             </li>
             <li>
                 <div class="collection_pic">
-                    <img src="../assets/nail_01.jpg">
+                    <img src="../assets/nail_07.jpg">
                 </div>
-                <span>봄 디자인</span>
+                <span>심플하고 화려한 디자인</span>
             </li>
             <li>
                 <div class="collection_pic">
-                    <img src="../assets/nail_01.jpg">
+                    <img src="../assets/nail_08.jpg">
                 </div>
-                <span>봄 디자인</span>
+                <span>작고 귀여운 레드 체크</span>
+            </li>
+            <li>
+                <div class="collection_pic">
+                    <img src="../assets/nail_03.jpg">
+                </div>
+                <span>심플한 디자인</span>
+            </li>
+            <li>
+                <div class="collection_pic">
+                    <img src="../assets/nail_02.jpg">
+                </div>
+                <span>자개 디자인</span>
+            </li>
+            <li>
+                <div class="collection_pic">
+                    <img src="../assets/nail_04.jpg">
+                </div>
+                <span>파스텔톤 디자인</span>
             </li>
         </ul>
 
@@ -44,7 +74,13 @@
 </template>
 <script>
 export default {
-    name: 'subcontent'
+    name: 'subcontent',
+    methods:{
+        //eslint-disable-next-line
+        goDetail: function(){
+            this.$router.push('/views/CollectionDetail');
+        }
+    }
 }
 </script>
 
@@ -66,7 +102,4 @@ export default {
         width: 350px;
         height: 300px;
     }
-
-
-
 </style>
