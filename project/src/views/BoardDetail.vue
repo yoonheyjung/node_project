@@ -3,19 +3,30 @@
     <div class="top">
         <h1> Q&A  </h1>
     </div>
-    <div>
-        <table  v-for="board in boardList" v-bind:key="board.seq">
-            <tr>
-                <th style="width:200px"> 제목 </th>
-                <th  colspan="2"> [ {{ board.subject }} ]</th>
-            </tr>
-            <tr>
-                <th style="width:200px"> 본문 </th>
-                <th  colspan="2">안녕하세요<br>
-                    저는 이것이 이렇게 궁금합니다
-                </th>
-            </tr>
-        </table>
+    <div>        
+        <b-table-simple resposive stacked> 
+            <b-tbody>
+                <b-tr v-for="board in boardList" :key="board.seq">
+                    <b-tr>
+                        <b-th> 제목 </b-th>
+                        <b-th head-variant="light"> {{board.subject}} </b-th>
+                    </b-tr>
+                     <b-tr>
+                        <b-td> 작성자 </b-td>
+                        <b-td> {{board.name}} </b-td>
+                        
+                        <b-td> 조회수 </b-td>
+                        <b-td> {{board.cnt}} </b-td>
+                        
+                        <b-td> 작성일 </b-td>
+                        <b-td> {{ board.reg_date | moment('YYYY-MM-DD HH:MM') }} </b-td>
+                    </b-tr>
+
+                    <b-td ><span  v-html = board.note></span>
+                    </b-td>
+                </b-tr>
+            </b-tbody>
+      </b-table-simple>
     </div>
    </div>
 </template>
@@ -29,9 +40,23 @@ export default {
     },
     methods: {
         LoadNotice : function(){
-        this.$http.get('/api/board/qna').then((res) => {
-            this.boardList = res.data
+            this.$http.post('/api/board/detail', { 
+                seq : this.$route.query.seq
+                
             })
+            .then((res) => {
+                if (res.data.success == true) {
+
+                    this.boardList = res.data.data
+                }
+                if (res.data.success == false) {
+                    alert("Error");
+                }
+            })
+
+            /*this.$http.get('/api/board/detail').then((res) => {
+                this.boardList = res.data
+            })*/
         }
     },
     created() {
