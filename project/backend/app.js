@@ -6,9 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-//var moviesRouter = require('./routes/movies');
 var boardRouter = require('./routes/board');
+var collectionRouter = require('./routes/collection');
 
 var app = express();
 
@@ -25,9 +24,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-
-//app.use('/api/movies', moviesRouter);
 app.use('/api/board', boardRouter);
+app.use('/api/collection', collectionRouter);
+
+//app.use('/upload', express.static('./upload'));  //파일업로드
+
 
 
 

@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 
-
 console.log("users.js 들어옴");
 
 /* DB 정보 */
@@ -32,6 +31,7 @@ router.post('/login', function(req, res){
     "id": req.body.user.userid,
     "pwd": req.body.user.userpwd
   } //양식을 임시 저장할 객체
+
   var sql = 'SELECT * FROM tbl_member'; //Mysql 쿼리 양식
 
   /* 알고리즘 */

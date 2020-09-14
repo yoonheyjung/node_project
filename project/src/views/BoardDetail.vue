@@ -26,7 +26,7 @@
                     </b-td>
                 </b-tr>
             </b-tbody>
-      </b-table-simple>
+        </b-table-simple>
     </div>
    </div>
 </template>

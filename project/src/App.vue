@@ -54,7 +54,7 @@ export default {
   #content {
     min-width: 80%;
     width : auto;
-    max-width: 90%;
+    max-width: 85%;
     padding: 45px;
     margin-bottom: 20px;
     float: right;

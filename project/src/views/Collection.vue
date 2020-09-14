@@ -2,6 +2,7 @@
   <div class="collection">
     <div class="top">
         <h1> collection </h1>
+        <b-button style="float:right" variant="light" v-on: :to="{ name: 'collection_writing' }"> 디자인 등록 </b-button>
     </div>
     <div class="subcontent" >
         <!-- {{toDoItems}} -->
@@ -12,12 +13,22 @@
                 <option value="old"> 오래된순 </option>
             </select>
         </div>
+
         <ul  style="overflow:auto">
+            <li v-for="list in dataList" :key="list.idx">
+                <router-link :to="{name: 'collection_detail', query: {seq:list.idx }}">
+                    <div class="collection_pic" >
+                        <img src="../assets/nail_01.jpg">
+                    </div>
+                </router-link>
+                <span>{{ list.subject }}</span>
+            </li>
+            <!------------------------------------------------------------------------>
             <li>
-                <v-img class="collection_pic"  @click="goDetail" >
+                <div class="collection_pic">
                     <img src="../assets/nail_01.jpg">
-                </v-img>
-                <v-text >봄 디자인</v-text >
+                </div>
+                <span> 여기가 시작여름의 초록</span>
             </li>
             <li>
                 <div class="collection_pic">
@@ -75,11 +86,31 @@
 <script>
 export default {
     name: 'subcontent',
+    data () {
+        return {
+            dataList:[],
+            imgArray:[
+                {url:"../assets/nail_04.jpg"},
+                {url:"../assets/nail_01.jpg"},
+                {url:"../assets/nail_02.jpg"},
+                {url:"../assets/nail_03.jpg"},
+                {url:"../assets/nail_05.jpg"},
+            ]
+        }
+    },
     methods:{
         //eslint-disable-next-line
         goDetail: function(){
             this.$router.push('/views/CollectionDetail');
-        }
+        },
+         LoadCList : function(){
+            this.$http.get('/api/collection/list').then((res) => {
+                this.dataList = res.data
+            })
+        }//LoadNotice end
+    },
+    created() {
+        this.LoadCList();
     }
 }
 </script>
