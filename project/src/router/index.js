@@ -12,6 +12,7 @@ import login from "@/views/Login"
 import signup from "@/views/Signup"
 import usersList from "@/views/UsersList"
 import boardDetail from "@/views/BoardDetail"
+import writing from "@/views/WritingPage"
 
 
 Vue.use(Router);
@@ -27,7 +28,8 @@ export default new Router({
     {path: "/views/QnA",name: "qna",component:qna},
     {path: "/login",name: "login",component: login},
     {path: "/signup",name: "signup",component: signup},
-    {path: "/boardDetail",name: "boardDetail",component:boardDetail},
+    {path: "/views/boardDetail",name: "boardDetail",component:boardDetail},
+    {path: "/views/writing",name: "writing",component:writing},//보드 작성 페이지
     {path: "/usersList",name: "usersList",component:usersList}//테스트용
   ]
 });

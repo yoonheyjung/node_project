@@ -12,7 +12,7 @@
         <br />
          <v-form >
             <v-text-field label="아이디" v-model="user.userid"></v-text-field>
-            <v-text-field @keyup.enter="Login" type="password" label="패스워드" v-model="user.userpw" style="margin-top:-15px;"></v-text-field>
+            <v-text-field @keyup.enter="Login" type="password" label="패스워드" v-model="user.userpwd" style="margin-top:-15px;"></v-text-field>
             <v-btn @click="Login" large outlined style="width:60%; margin: 0 20%;">로그인</v-btn>
         </v-form>
     </div>
@@ -23,17 +23,32 @@
 export default {
   data(){
     return{
-            user: {
-                userId: '',
-                userPw: ''
-            }
-        }
+      user: {
+        userid: '',
+        userpwd: ''
+      }
+    }
   },
   methods:{
     //eslint-disable-next-line
     Login: function(){
-      alert("환영합니다");
-      this.$router.push('/');
+        this.$http.post('/api/users/login', {
+        user: this.user
+      })
+      .then(
+        (res) => {  //로그인 성공
+           if (res.data.success == true) {
+              alert(res.data.message);
+              this.$router.push('/');
+            }
+            if (res.data.success == false) {
+              alert(res.data.message);
+            }
+        },
+        (err) => { // error 를 보여줌
+          console.log(err);
+          alert('vue 에러');
+      })
     }
   }
 }

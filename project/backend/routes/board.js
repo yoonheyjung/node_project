@@ -15,7 +15,7 @@ connection.connect();
 
 /* 공지사항 불러오기  */
 router.get('/notice', function(req, res, next) {
-  connection.query('SELECT * FROM tbl_board where mode ="notice"', function (err, rows) {
+  connection.query('SELECT * FROM tbl_board where mode ="ntc"', function (err, rows) {
     if (err) throw err;
     res.json(rows);
     console.log(rows);
@@ -29,5 +29,18 @@ router.get('/qna', function(req, res, next) {
         console.log(rows);
     });
 });
+/* 글 저장 */
+router.post('/save', function(req, res){
+   /* 변수 선언 */
+   var board = {
+    "mode": req.body.form.mode, //qns or notice
+    "title": req.body.form.title,
+    "text": req.body.form.text
+  } 
+});
 
+/* 글 삭제 */
+router.post('/delete', function(req, res){
+
+});
 module.exports = router;

@@ -155,9 +155,12 @@
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
 
+    <!--
     <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
     </b-card>
+    -->
+    
   </div>
 </template>
 
@@ -170,10 +173,10 @@
           id:'',
           pwd:'',
           email: '',
-          selected:'',
+          selected:'w',
           birth:'',
           staff:'g',
-          shop:''
+          shop:'null'
         },
         options:[
           {text:'여자', value:'w'},
@@ -190,8 +193,18 @@
     methods: {
       onSubmit(evt) {
         evt.preventDefault()
+
         this.$http.post('/api/users/signUp', { 
           form: this.form
+        })
+        .then((res) => {
+          if (res.data.success == true) {
+            alert(res.data.message);
+            this.$router.push('/login') 
+          }
+          if (res.data.success == false) {
+            alert(res.data.message);
+          }
         })
         
         alert(JSON.stringify(this.form))
