@@ -61,6 +61,7 @@ export default {
   }
   .top{
     margin-bottom: 20px;
+        width: 1200px;
     /*background-color: tomato;*/
   }
   @media ( max-width: 480px ) {

@@ -2,14 +2,14 @@
     <div class="home-page">
         <div class="banner">
              <div class="container">
-                <h3 class="logo-font" > 안녕하세요. test01님!</h3>
+                <h2 class="logo-font" > 손톱안의 작은 세상 </h2>
             </div>
         </div>
          <div class="container page">
              <!-- hot리스트 : 최근 조회수 높은 것-->
             <div class="hot_list">
                 <div class="head">
-                  <strong> hot리스트 : 최근 조회수 높은 것</strong>
+                  <h5> hot리스트 : 최근 조회수 높은 것</h5>
                 </div>
                 <div class="hot_pic">
                     <ul style="overflow:auto">
@@ -30,7 +30,7 @@
             <!-- 최근 올라온 작품들 start -->
              <div class="new_list">
                 <div class="head">
-                  <strong>new 최근 올라온 작품들</strong>
+                  <h5><b-badge variant="info">New</b-badge> 최근 올라온 작품들</h5>
                 </div>
                 <div class="new_pic">
                     <ul style="overflow:auto">

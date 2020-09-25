@@ -2,7 +2,6 @@
   <div class="writing">
       <div class="top">
         <h1>작성 페이지</h1>
-        <h2>mode: {{ $route.query.mode }}</h2>
       </div>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
             <b-button type="submit" variant="primary">저장하기</b-button>&nbsp;
@@ -34,10 +33,6 @@
             rows="15"
             max-rows="6"
             ></b-form-textarea>
-            
-            <b-card class="mt-3" header="Form Data Result">
-             <pre class="m-0">{{ form }}</pre>
-            </b-card>
       </b-form>
   </div>
 </template>
