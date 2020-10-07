@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
     if (err) throw err;
     res.send(rows);
     console.log(rows);
+    return;
   });
 });
 
@@ -38,30 +39,37 @@ router.post('/login', function(req, res){
 
   //디버깅용 로그
   console.log(user);
+  
+  console.log('SELECT id, pwd, name FROM tbl_member WHERE id = "' + user.id + '"');
 
   //DB에서 회원정보 읽어와서 사용자가 입력한 내용과 대조
   connection.query('SELECT id, pwd, name FROM tbl_member WHERE id = "' + user.id + '"', function (err, row) {
-    console.log(err);
-    console.log(row);
-    if (err == null || row == null || err) {
+    if (row == null || err) {
+      console.log("첫번째 if 들어옴");
       res.json({ // 매칭되는 아이디 없을 경우
         success: false,
         message: '아이디 혹은 비밀번호를 다시 확인해주세요'
       })
+      .end();
+      return;
     }
-    if (row[0] !== undefined && row[0].id === user.id) {
+    else if (row[0] !== undefined && row[0].id === user.id ) {
       //bcrypt.compare(user.pwd, row[0].pwd, function (err, res2) {
         if (row[0].pwd === user.pwd) {
           res.json({ // 로그인 성공 
             success: true,
             message: '환영합니다. '+ row[0].name +'님!'
           })
+          .end();
+          return;
         }
         else {
           res.json({ // 매칭되는 아이디는 있으나, 비밀번호가 틀린 경우            
             success: false,
             message: '아이디 혹은 비밀번호를 다시 확인해주세요'
           })
+          .end();
+          return;
         }
       //})
     }
